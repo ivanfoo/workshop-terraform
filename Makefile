@@ -9,10 +9,10 @@ backend:
 
 image:
 	@docker build . \
-	--build-arg UID=$(UID) \
-    --build-arg GID=$(GID) \
-	--build-arg MYSELF=$(MYSELF) \
-	-t terraform-workshop
+		--build-arg UID=$(UID) \
+		--build-arg GID=$(GID) \
+		--build-arg MYSELF=$(MYSELF) \
+		-t terraform-workshop
 
 shell:
 	@docker run --rm -it --entrypoint /bin/sh terraform-workshop
