@@ -16,4 +16,5 @@ RUN pip install --upgrade pip \
     boto \
     boto3
 
+WORKDIR /home/${MYSELF}
 USER ${MYSELF}
