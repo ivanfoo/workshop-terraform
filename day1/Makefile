@@ -22,7 +22,7 @@ image:
 		--build-arg MYSELF=$(MYSELF) \
 		-t terraform-workshop
 
-shell:
+shell: image
 	@docker run --rm -it \
 	-v $(PWD)/terraform:/var/terraform \
 	-v $(HOME)/.aws/credentials:/home/$(MYSELF)/.aws/credentials \
