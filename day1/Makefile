@@ -1,6 +1,6 @@
 export MYSELF ?= $(USER)
 export UID := $(shell id -u)
-export GID := $(shell id -g)
+export GID := $(UID)
 
 export AWS_REGION := us-east-1
 
@@ -16,7 +16,7 @@ backend:
 	--extra-vars='ansible_python_interpreter=/usr/bin/python' backend.yml
 
 image:
-	@docker build . \
+	@docker build . --no-cache \
 		--build-arg UID=$(UID) \
 		--build-arg GID=$(GID) \
 		--build-arg MYSELF=$(MYSELF) \
