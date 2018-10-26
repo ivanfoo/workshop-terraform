@@ -15,4 +15,11 @@ image:
 		-t terraform-workshop
 
 shell:
-	@docker run --rm -it --entrypoint /bin/sh terraform-workshop
+	@docker run --rm -it \
+	-v $(PWD)/terraform:/var/terraform \
+	-v $(HOME)/.aws/credentials:/home/$(MYSELF)/.aws/credentials \
+	-e AWS_REGION \
+	-e AWS_PROFILE=$(AWS_PROFILE) \
+	-e TF_VAR_myself=$(MYSELF) \
+	--workdir /var/terraform \
+	--entrypoint /bin/sh terraform-workshop
