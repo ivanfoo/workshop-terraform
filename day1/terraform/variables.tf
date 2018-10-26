@@ -1,2 +1,2 @@
-variable website_bucket_suffix {}
-variable myself {}
+// variable website_bucket_suffix {}
+// variable myself {}

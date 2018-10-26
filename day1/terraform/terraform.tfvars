@@ -1,1 +1,1 @@
-website_bucket_suffix = "terraform-workshop"
+// website_bucket_suffix
