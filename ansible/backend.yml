@@ -1,0 +1,24 @@
+- hosts: localhost
+  gather_facts: no
+
+  tasks:
+    - name: create s3 tfstate backend
+      s3_bucket:
+        name: "{{ lookup('env', 'MYSELF') }}-nx-terraform-workshop"
+        state: present
+        versioning: true
+        tags:
+          owner: "{{ lookup('env', 'MYSELF') }}"
+          project: "terraform-workshop"
+
+    - name: create dynamodb table for tfstate locking
+      dynamodb_table:
+        name: "{{ lookup('env', 'MYSELF') }}-nx-terraform-workshop"
+        hash_key_name: LockID
+        hash_key_type: STRING
+        read_capacity: 2
+        write_capacity: 2
+        state: present
+        tags:
+          owner: "{{ lookup('env', 'MYSELF') }}"
+          project: "terraform-workshop"
