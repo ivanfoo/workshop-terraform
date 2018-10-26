@@ -27,6 +27,7 @@ shell:
 	-v $(PWD)/terraform:/var/terraform \
 	-v $(HOME)/.aws/credentials:/home/$(MYSELF)/.aws/credentials \
 	-e AWS_REGION \
+	-e AWS_DEFAULT_REGION=$(AWS_REGION) \
 	-e AWS_PROFILE=$(AWS_PROFILE) \
 	-e MYSELF=$(MYSELF) \
 	-e TF_VAR_myself=$(MYSELF) \
