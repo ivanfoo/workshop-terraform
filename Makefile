@@ -1,3 +1,5 @@
+export AWS_REGION := us-east-1
+
 backend:
 	@docker run --rm -it --entrypoint ansible-playbook terraform-workshop
 
