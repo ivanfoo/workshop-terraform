@@ -10,11 +10,17 @@ RUN apk add --no-cache \
     python \
     py-pip \
     shadow \
-    ansible
+    build-base \
+    python-dev \
+    libc-dev \
+    libffi-dev \
+    openssl-dev
 
 RUN pip install --upgrade pip \
     boto \
     boto3
 
+RUN pip install --upgrade ansible
+    
 WORKDIR /home/${MYSELF}
 USER ${MYSELF}
